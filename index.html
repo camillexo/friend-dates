@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Friend Dates · June with Camille</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500;1,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="grain"></div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-blob blob-1"></div>
+    <div class="hero-blob blob-2"></div>
+    <div class="hero-blob blob-3"></div>
+    <div class="hero-inner">
+      <div class="hero-tag"><span class="dot"></span> June only · Chicago</div>
+      <h1 class="hero-title">Friend<br><em>Dates</em> <span class="wave">✦</span></h1>
+      <p class="hero-sub">Come hang with me this month — tag along to something I'm already doing, or pitch me a brand-new plan. Nights out, nights in, sweaty classes, slow strolls. I'm open to it all.</p>
+      <nav class="hero-nav">
+        <a href="#join" class="pill pill-solid">Tag along →</a>
+        <a href="#propose" class="pill pill-pink">Pitch a plan</a>
+        <a href="#calendar" class="pill pill-blue">Peek the cal</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- JOIN -->
+    <section id="join" class="section section-cream">
+      <div class="section-head">
+        <span class="kicker mono">01 / already on my schedule</span>
+        <h2>Come find me out<br>in the world</h2>
+        <p>My regular weekly rotation. Pick one, pop your name in, and add it to your calendar so we lock it in. 💌</p>
+      </div>
+      <div class="events-grid" id="events-grid"></div>
+    </section>
+
+    <!-- PROPOSE -->
+    <section id="propose" class="section section-forest">
+      <div class="section-head">
+        <span class="kicker mono light">02 / your idea</span>
+        <h2 class="light">Got a plan?<br><em>Pitch it.</em></h2>
+        <p class="light">Dinner, pottery, a cook night, wine, co-working, a picnic — you name it. Fill this out and I'll get it on the calendar.</p>
+      </div>
+
+      <form class="propose-form" id="propose-form">
+        <div class="field">
+          <label for="type">What are we doing?</label>
+          <select id="type" name="type" required>
+            <option value="" disabled selected>Pick a vibe…</option>
+            <option>Dinner 🍝</option>
+            <option>Pottery class 🏺</option>
+            <option>Let's cook 👩‍🍳</option>
+            <option>Wine night 🍷</option>
+            <option>Co-working 💻</option>
+            <option>Coffee ☕</option>
+            <option>Picnic / stroll 🧺</option>
+            <option>Workout class 🏋️‍♀️</option>
+            <option value="__other">Something else…</option>
+          </select>
+        </div>
+
+        <div class="field" id="other-field" hidden>
+          <label for="type-other">Ooh, tell me what</label>
+          <input type="text" id="type-other" name="type-other" placeholder="e.g. roller skating at the pier" />
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="date">Date</label>
+            <input type="date" id="date" name="date" min="2026-06-01" max="2026-06-30" required />
+          </div>
+          <div class="field">
+            <label for="time">Time</label>
+            <input type="time" id="time" name="time" required />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="location">Where?</label>
+          <input type="text" id="location" name="location" placeholder="Spot, neighborhood, or 'your call'" required />
+        </div>
+
+        <div class="field">
+          <label for="note">Note <span class="opt">(optional)</span></label>
+          <textarea id="note" name="note" rows="3" placeholder="Set the scene for me ✨"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="from">Who's asking?</label>
+          <input type="text" id="from" name="from" placeholder="Your name" required />
+        </div>
+
+        <button type="submit" class="submit-btn">Send it my way →</button>
+        <p class="form-hint mono" id="form-hint"></p>
+      </form>
+    </section>
+
+    <!-- CALENDAR -->
+    <section id="calendar" class="section section-cream">
+      <div class="section-head">
+        <span class="kicker mono">03 / the plan</span>
+        <h2>What's locked in</h2>
+        <p>Everything confirmed for June lives right here. 🗓️</p>
+      </div>
+      <div class="cal-wrap">
+        <iframe
+          title="Friend Dates calendar"
+          src="https://calendar.google.com/calendar/embed?src=14ca0481e5d99930a0294303e871e4a00abb26a4e0426cb511569e0bc70de90f%40group.calendar.google.com&ctz=America%2FChicago"
+          style="border:0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span class="mono">friend dates · june '26</span>
+    <span class="footer-heart">made for being together, for real ♥</span>
+    <span class="mono">chicago · cst</span>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal-card">
+      <button class="modal-close" id="modal-close" aria-label="Close">×</button>
+      <span class="modal-emoji" id="modal-emoji">💃</span>
+      <h3 id="modal-title">Join me</h3>
+      <p id="modal-detail" class="modal-detail mono"></p>
+      <div class="field">
+        <label for="rsvp-name">Your name</label>
+        <input type="text" id="rsvp-name" placeholder="So I know you're coming!" />
+      </div>
+      <a id="modal-add" class="submit-btn" target="_blank" rel="noopener">Add to my calendar →</a>
+      <p class="form-hint mono">Drops it on your Google Calendar so we don't forget. 🤝</p>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
