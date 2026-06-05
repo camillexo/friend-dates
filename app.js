@@ -81,7 +81,7 @@ let currentEvent = null;
 function openModal(ev, dateObj) {
   currentEvent = { ev, dateObj };
   if (modalEmoji) modalEmoji.textContent = ev.emoji;
-  modalTitle.textContent = `Join me for ${ev.title}`;
+  modalTitle.textContent = `Join me at ${ev.title}`;
   modalDetail.textContent = `${DAY_NAMES[ev.dow]} · ${to12h(ev.time)}${ev.location ? " · " + ev.location : ""}`;
   rsvpName.value = "";
   updateModalLink();
